@@ -1,0 +1,189 @@
+{
+  "nav": {
+    "services": "Services",
+    "faq": "FAQ",
+    "reviews": "Reviews",
+    "contact": "Contact"
+  },
+  "hero": {
+    "mainTitle": "Solving Your Computer Problems,",
+    "mainTitleHighlight": "One Fix at a Time",
+    "serviceArea": "Serving Montreal and Surrounding Areas",
+    "description": "Expert computer repair services with monthly maintenance plans to keep your technology running smoothly. Fast, reliable, and affordable solutions for individuals and businesses.",
+    "cta": "Get Free Quote",
+    "stats": {
+      "emergency": "Emergency Support",
+      "customers": "Happy Customers",
+      "experience": "Years Experience"
+    },
+    "statValues": {
+      "emergency": "24/7",
+      "customers": "500+",
+      "experience": "15+"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive computer repair and maintenance services to keep your technology running at peak performance",
+    "items": [
+      {
+        "title": "Desktop Repair",
+        "description": "Complete PC & Mac desktop computer diagnostics, hardware replacement, and performance optimization"
+      },
+      {
+        "title": "Laptop Repair",
+        "description": "PC, Mac & Chromebook screen replacement, keyboard repair, battery replacement, and motherboard diagnostics"
+      },
+      {
+        "title": "Mobile Device Repair",
+        "description": "Smartphone and tablet screen repair, charging port fixes, and software troubleshooting"
+      },
+      {
+        "title": "Data Recovery",
+        "description": "Professional data recovery from damaged drives, deleted files, and corrupted storage"
+      },
+      {
+        "title": "Virus Removal",
+        "description": "Complete malware removal, system security setup, and preventive protection installation"
+      },
+      {
+        "title": "Performance Optimization",
+        "description": "System cleanup, software optimization, and hardware upgrades for peak performance"
+      }
+    ]
+  },
+  "advantages": {
+    "title": "Why Choose GeekOnSite Solutions?",
+    "subtitle": "With over 15 years of experience and 500+ satisfied customers, we're the trusted choice for computer repair and IT support",
+    "items": [
+      {
+        "title": "Certified Technicians",
+        "description": "Our team consists of certified professionals with 15+ years of experience in computer repair and IT support."
+      },
+      {
+        "title": "Fast & Reliable Service",
+        "description": "Quick turnaround times with same-day service available. We get your technology back up and running fast."
+      },
+      {
+        "title": "Transparent Pricing",
+        "description": "No hidden fees or surprise charges. We provide clear, upfront quotes so you know exactly what to expect."
+      },
+      {
+        "title": "Local Montreal Expert",
+        "description": "Based in Montreal with deep roots in the community. We serve the Greater Montreal area with fast local response times and same-day service."
+      },
+      {
+        "title": "100% Satisfaction Guarantee",
+        "description": "We stand behind our work with a complete satisfaction guarantee. Your happiness is our top priority."
+      },
+      {
+        "title": "Data Security & Privacy",
+        "description": "Your personal and business data is handled with the utmost care and security throughout the repair process."
+      }
+    ]
+  },
+  "cta": {
+    "ready": "Ready to Get Started?",
+    "contact": "Contact us today for a free consultation and quote",
+    "button": "Get Your Free Quote"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Get answers to common questions about our computer repair and maintenance services",
+    "stillHave": "Still Have Questions?",
+    "stillHaveText": "Can't find what you're looking for? We're here to help!",
+    "contactButton": "Contact Us",
+    "items": [
+      {
+        "question": "How quickly can you fix my computer?",
+        "answer": "Most repairs are completed within 24-48 hours. For simple issues like virus removal or software problems, we often provide same-day service. Complex hardware repairs may take 2-3 business days depending on parts availability. We always provide an estimated timeline upfront."
+      },
+      {
+        "question": "What areas do you service?",
+        "answer": "We proudly serve the Greater Montreal area and surrounding regions including the North Shore, South Shore, and West Island. We offer same-day service for most locations within Montreal and nearby suburbs. For remote diagnostics and support, we can assist customers anywhere. Contact us to confirm service availability for your specific location."
+      },
+      {
+        "question": "Do you offer on-site service or do I need to bring my computer to you?",
+        "answer": "We offer both on-site and remote support options for your convenience. On-site service is available for businesses and home users within our service area. For many software issues, we can provide remote assistance. Hardware repairs typically require bringing the device to our facility."
+      },
+      {
+        "question": "What types of computers and devices do you repair?",
+        "answer": "We repair all major brands of desktop computers, laptops, and mobile devices including PCs, Macs, Chromebooks, smartphones, and tablets. Our technicians are experienced with Windows, macOS, Linux, iOS, and Android systems."
+      },
+      {
+        "question": "How much do your services cost?",
+        "answer": "Our pricing varies depending on the type of service needed. We offer transparent, upfront pricing with no hidden fees. Basic diagnostics start at $50, and we provide a detailed quote before beginning any work. Our monthly maintenance plans start at $29/month for ongoing support."
+      },
+      {
+        "question": "Do you provide a warranty on your repairs?",
+        "answer": "Yes! We stand behind our work with a 90-day warranty on all repairs. If the same issue occurs within 90 days, we'll fix it at no additional charge. We also offer a 100% satisfaction guarantee - if you're not happy with our service, we'll make it right."
+      },
+      {
+        "question": "Can you recover data from a crashed hard drive?",
+        "answer": "We offer professional data recovery services for various scenarios including crashed hard drives, deleted files, and corrupted storage devices. Success rates vary depending on the type and extent of damage. We provide a free evaluation and quote before proceeding with recovery attempts."
+      },
+      {
+        "question": "What's included in your monthly maintenance plans?",
+        "answer": "Our maintenance plans include regular system optimization, security updates, virus scans, disk cleanup, software updates, and priority support. Basic Care includes monthly tune-ups and email support, while Advanced Care adds priority on-site service and extended coverage."
+      },
+      {
+        "question": "Do you work with businesses or just individual customers?",
+        "answer": "We serve both individual customers and businesses of all sizes. We offer specialized business services including network setup, server maintenance, employee device management, and bulk repair services. Contact us to discuss custom business solutions."
+      },
+      {
+        "question": "How do I know if my computer needs professional repair?",
+        "answer": "Common signs include slow performance, frequent crashes, unusual noises, overheating, blue screens, virus infections, or hardware malfunctions. If your computer is affecting your productivity or you're concerned about data loss, it's best to have it professionally diagnosed."
+      },
+      {
+        "question": "What should I do to prepare my computer for repair?",
+        "answer": "Back up important data if possible, remove any personal items, and make note of passwords you might need. Write down specific error messages or symptoms you've experienced. We handle all data with strict confidentiality, but backing up provides extra peace of mind."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "What Our Customers Say",
+    "subtitle": "Don't just take our word for it - hear from some of our satisfied customers",
+    "items": [
+      {
+        "name": "Sarah Johnson",
+        "business": "Johnson & Associates",
+        "text": "GeekOnSite Solutions saved our business when our server crashed. Their quick response and professional service got us back online in hours, not days."
+      },
+      {
+        "name": "Mike Rodriguez",
+        "business": "Home User",
+        "text": "I've been using their Basic Care plan for 6 months. My computer runs like new, and their support team is incredibly helpful and patient."
+      },
+      {
+        "name": "Lisa Chen",
+        "business": "Creative Studio",
+        "text": "The Advance Care plan is perfect for our design studio. Regular maintenance keeps our workstations running smoothly, and their response time is excellent."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Ready to get started? Email us today for a free consultation and quote",
+    "response": "We typically respond within 2 hours",
+    "emailDescription": "Email us with your computer issues or questions, and we'll provide you with a personalized solution and quote."
+  },
+  "footer": {
+    "description": "Professional computer repair and maintenance services you can trust. Keeping your technology running smoothly since 2008.",
+    "copyright": "© 2024 GeekOnSite Solutions. All rights reserved.",
+    "services": "Services",
+    "contact": "Contact & Service",
+    "serviceArea": "Service Area:",
+    "serviceAreaText": "Greater Montreal & Surroundings",
+    "serviceLinks": [
+      "Desktop Repair",
+      "Laptop Repair",
+      "Data Recovery",
+      "Virus Removal",
+      "Monthly Maintenance"
+    ],
+    "contactItems": [
+      "Professional Support",
+      "Free Consultations"
+    ]
+  }
+}

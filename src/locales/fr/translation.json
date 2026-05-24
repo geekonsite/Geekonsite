@@ -1,0 +1,189 @@
+{
+  "nav": {
+    "services": "Services",
+    "faq": "FAQ",
+    "reviews": "Avis",
+    "contact": "Contact"
+  },
+  "hero": {
+    "mainTitle": "Résoudre vos problèmes informatiques,",
+    "mainTitleHighlight": "Une réparation à la fois",
+    "serviceArea": "Desservant la région de Montréal et ses environs",
+    "description": "Services de réparation informatique professionnels avec plans de maintenance mensuels pour assurer le bon fonctionnement de votre technologie. Solutions rapides, fiables et abordables pour les particuliers et les entreprises.",
+    "cta": "Obtenir une soumission gratuite",
+    "stats": {
+      "emergency": "Support d'urgence",
+      "customers": "Clients satisfaits",
+      "experience": "Années d'expérience"
+    },
+    "statValues": {
+      "emergency": "24/7",
+      "customers": "500+",
+      "experience": "15+"
+    }
+  },
+  "services": {
+    "title": "Nos services",
+    "subtitle": "Services complets de réparation et de maintenance informatique pour maintenir votre technologie en parfait état de fonctionnement",
+    "items": [
+      {
+        "title": "Réparation d'ordinateurs de bureau",
+        "description": "Diagnostics complets de PC et Mac, remplacement matériel et optimisation des performances"
+      },
+      {
+        "title": "Réparation d'ordinateurs portables",
+        "description": "Remplacement d'écran PC, Mac et Chromebook, réparation de clavier, remplacement de batterie et diagnostic de carte mère"
+      },
+      {
+        "title": "Réparation d'appareils mobiles",
+        "description": "Réparation d'écran de téléphone et tablette, correction de port de charge et dépannage logiciel"
+      },
+      {
+        "title": "Récupération de données",
+        "description": "Récupération professionnelle de données à partir de disques endommagés, fichiers supprimés et stockage corrompu"
+      },
+      {
+        "title": "Suppression de virus",
+        "description": "Suppression complète des logiciels malveillants, configuration de la sécurité système et installation de protection préventive"
+      },
+      {
+        "title": "Optimisation des performances",
+        "description": "Nettoyage système, optimisation logicielle et mises à niveau matérielles pour des performances optimales"
+      }
+    ]
+  },
+  "advantages": {
+    "title": "Pourquoi choisir GeekOnSite Solutions ?",
+    "subtitle": "Avec plus de 15 ans d'expérience et 500+ clients satisfaits, nous sommes le choix de confiance pour la réparation informatique et le support informatique",
+    "items": [
+      {
+        "title": "Techniciens certifiés",
+        "description": "Notre équipe est composée de professionnels certifiés ayant plus de 15 ans d'expérience en réparation informatique et support informatique."
+      },
+      {
+        "title": "Service rapide et fiable",
+        "description": "Des délais d'exécution rapides avec service le jour même disponible. Nous remettons votre technologie en fonctionnement rapidement."
+      },
+      {
+        "title": "Tarification transparente",
+        "description": "Pas de frais cachés ni de surprises. Nous fournissons des devis clairs et d'avance pour que vous sachiez exactement à quoi vous attendre."
+      },
+      {
+        "title": "Expert local de Montréal",
+        "description": "Basé à Montréal avec des racines profondes dans la communauté. Nous servons la région de Montréal avec des temps de réponse rapides et un service le jour même."
+      },
+      {
+        "title": "Garantie 100% de satisfaction",
+        "description": "Nous garantissons notre travail avec une garantie de satisfaction complète. Votre bonheur est notre priorité absolue."
+      },
+      {
+        "title": "Sécurité et confidentialité des données",
+        "description": "Vos données personnelles et commerciales sont traitées avec le plus grand soin et la plus grande sécurité pendant le processus de réparation."
+      }
+    ]
+  },
+  "cta": {
+    "ready": "Prêt à commencer ?",
+    "contact": "Contactez-nous dès aujourd'hui pour une consultation et une soumission gratuites",
+    "button": "Obtenir votre soumission gratuite"
+  },
+  "faq": {
+    "title": "Questions fréquemment posées",
+    "subtitle": "Trouvez des réponses aux questions courantes sur nos services de réparation et maintenance informatique",
+    "stillHave": "Vous avez d'autres questions ?",
+    "stillHaveText": "Vous ne trouvez pas ce que vous cherchez ? Nous sommes là pour vous aider !",
+    "contactButton": "Nous contacter",
+    "items": [
+      {
+        "question": "Avec quelle rapidité pouvez-vous réparer mon ordinateur ?",
+        "answer": "La plupart des réparations sont complétées en 24 à 48 heures. Pour les problèmes simples comme la suppression de virus ou les problèmes logiciels, nous offrons souvent un service le jour même. Les réparations matérielles complexes peuvent prendre 2 à 3 jours ouvrables selon la disponibilité des pièces. Nous fournissons toujours une estimation du délai à l'avance."
+      },
+      {
+        "question": "Quelles régions desservez-vous ?",
+        "answer": "Nous servons fièrement la région de Montréal et les régions environnantes, y compris la Rive-Nord, la Rive-Sud et l'Ouest de l'île. Nous offrons un service le jour même pour la plupart des emplacements à Montréal et dans les banlieues environnantes. Pour les diagnostics à distance et le support, nous pouvons assister les clients n'importe où. Contactez-nous pour confirmer la disponibilité du service pour votre emplacement spécifique."
+      },
+      {
+        "question": "Offrez-vous un service sur place ou dois-je vous apporter mon ordinateur ?",
+        "answer": "Nous offrons à la fois des options de support sur place et à distance pour votre commodité. Le service sur place est disponible pour les entreprises et les utilisateurs à domicile dans notre région de service. Pour de nombreux problèmes logiciels, nous pouvons offrir une assistance à distance. Les réparations matérielles nécessitent généralement d'apporter l'appareil à notre installation."
+      },
+      {
+        "question": "Quels types d'ordinateurs et d'appareils réparez-vous ?",
+        "answer": "Nous réparons toutes les marques majeures d'ordinateurs de bureau, d'ordinateurs portables et d'appareils mobiles, y compris les PC, Mac, Chromebook, téléphones intelligents et tablettes. Nos techniciens ont de l'expérience avec les systèmes Windows, macOS, Linux, iOS et Android."
+      },
+      {
+        "question": "Combien coûtent vos services ?",
+        "answer": "Nos tarifs varient selon le type de service nécessaire. Nous offrons une tarification transparente et d'avance sans frais cachés. Les diagnostics de base commencent à 50 $, et nous fournissons un devis détaillé avant de commencer les travaux. Nos plans de maintenance mensuelle commencent à 29 $/mois pour un support continu."
+      },
+      {
+        "question": "Offrez-vous une garantie sur vos réparations ?",
+        "answer": "Oui ! Nous garantissons notre travail avec une garantie de 90 jours sur toutes les réparations. Si le même problème se reproduit dans 90 jours, nous le réparons sans frais additionnels. Nous offrons également une garantie de satisfaction 100% - si vous n'êtes pas satisfait de notre service, nous arrangerons les choses."
+      },
+      {
+        "question": "Pouvez-vous récupérer les données d'un disque dur endommagé ?",
+        "answer": "Nous offrons des services professionnels de récupération de données pour divers scénarios, y compris les disques durs endommagés, les fichiers supprimés et les appareils de stockage corrompus. Les taux de succès varient selon le type et l'étendue des dommages. Nous fournissons une évaluation gratuite et un devis avant de procéder aux tentatives de récupération."
+      },
+      {
+        "question": "Qu'inclus votre plan de maintenance mensuel ?",
+        "answer": "Nos plans de maintenance incluent l'optimisation système régulière, les mises à jour de sécurité, les analyses de virus, le nettoyage de disque, les mises à jour logicielles et le support prioritaire. Le Plan de base comprend les optimisations mensuelles et le support par courriel, tandis que le Plan avancé ajoute le service sur place prioritaire et la couverture étendue."
+      },
+      {
+        "question": "Travaillez-vous avec des entreprises ou seulement des clients individuels ?",
+        "answer": "Nous servons à la fois des clients individuels et des entreprises de toutes tailles. Nous offrons des services commerciaux spécialisés, y compris la configuration réseau, la maintenance de serveurs, la gestion des appareils des employés et les services de réparation en masse. Contactez-nous pour discuter de solutions commerciales personnalisées."
+      },
+      {
+        "question": "Comment savoir si mon ordinateur a besoin d'une réparation professionnelle ?",
+        "answer": "Les signes courants incluent des performances lentes, des plantages fréquents, des bruits inhabituels, une surchauffe, des écrans bleus, des infections de virus ou des défaillances matérielles. Si votre ordinateur affecte votre productivité ou si vous êtes préoccupé par la perte de données, il est préférable de le faire diagnostiquer professionnellement."
+      },
+      {
+        "question": "Que dois-je faire pour préparer mon ordinateur à la réparation ?",
+        "answer": "Sauvegardez les données importantes si possible, retirez les articles personnels et notez les mots de passe dont vous pourriez avoir besoin. Notez les messages d'erreur spécifiques ou les symptômes que vous avez rencontrés. Nous traitons toutes les données avec une stricte confidentialité, mais la sauvegarde offre une tranquillité d'esprit supplémentaire."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Ce que nos clients disent",
+    "subtitle": "Ne prenez pas simplement notre parole - écoutez certains de nos clients satisfaits",
+    "items": [
+      {
+        "name": "Sarah Johnson",
+        "business": "Johnson & Associates",
+        "text": "GeekOnSite Solutions a sauvé notre entreprise quand notre serveur a planté. Leur réponse rapide et leur service professionnel nous ont remis en ligne en heures, pas en jours."
+      },
+      {
+        "name": "Mike Rodriguez",
+        "business": "Utilisateur à domicile",
+        "text": "J'utilise leur plan Basic Care depuis 6 mois. Mon ordinateur fonctionne comme neuf, et leur équipe de support est incroyablement utile et patiente."
+      },
+      {
+        "name": "Lisa Chen",
+        "business": "Studio créatif",
+        "text": "Le plan Advance Care est parfait pour notre studio de conception. L'entretien régulier maintient nos postes de travail en bon fonctionnement, et leur temps de réponse est excellent."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Prenez contact",
+    "subtitle": "Prêt à commencer ? Envoyez-nous un courriel dès aujourd'hui pour une consultation et une soumission gratuites",
+    "response": "Nous répondons généralement dans les 2 heures",
+    "emailDescription": "Envoyez-nous un courriel avec vos problèmes informatiques ou vos questions, et nous vous fournirons une solution et une soumission personnalisées."
+  },
+  "footer": {
+    "description": "Services professionnels de réparation et maintenance informatique sur lesquels vous pouvez compter. Garder votre technologie en bon fonctionnement depuis 2008.",
+    "copyright": "© 2024 GeekOnSite Solutions. Tous droits réservés.",
+    "services": "Services",
+    "contact": "Contact et service",
+    "serviceArea": "Zone de service :",
+    "serviceAreaText": "Région de Montréal et environs",
+    "serviceLinks": [
+      "Réparation d'ordinateurs de bureau",
+      "Réparation d'ordinateurs portables",
+      "Récupération de données",
+      "Suppression de virus",
+      "Maintenance mensuelle"
+    ],
+    "contactItems": [
+      "Support professionnel",
+      "Consultations gratuites"
+    ]
+  }
+}
