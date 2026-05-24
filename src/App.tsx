@@ -379,22 +379,6 @@ function App() {
           </div>
 
           <FAQSection faqs={faqs} />
-
-          {/* Still Have Questions CTA */}
-          <div className="text-center mt-12">
-            <div className="bg-blue-50 rounded-xl p-8 inline-block">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">{t('faq.stillHave')}</h3>
-              <p className="text-gray-600 mb-4">
-                {t('faq.stillHaveText')}
-              </p>
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200"
-              >
-                {t('faq.contactButton')}
-              </button>
-            </div>
-          </div>
         </div>
       </section>
 
