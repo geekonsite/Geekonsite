@@ -422,21 +422,12 @@ function App() {
           </div>
 
           <div className="text-center">
-            <div className="inline-flex items-center space-x-3 bg-white px-8 py-6 rounded-xl shadow-lg">
-              <Mail className="h-8 w-8 text-blue-600" />
-              <div className="text-left">
-                <a
-                  href="mailto:info@geekonsite.ca"
-                  className="text-2xl font-bold text-blue-600 hover:text-blue-700 hover:underline transition-colors duration-200"
-                >
-                  info@geekonsite.ca
-                </a>
-                <div className="text-gray-600">{t('contact.response')}</div>
-              </div>
-            </div>
-            <p className="text-lg text-gray-600 mt-6 max-w-2xl mx-auto">
-              {t('contact.emailDescription')}
-            </p>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg text-lg"
+            >
+              {t('contact.title')}
+            </button>
           </div>
         </div>
       </section>
