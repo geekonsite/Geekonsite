@@ -163,9 +163,8 @@
   },
   "contact": {
     "title": "Prenez contact",
-    "subtitle": "Prêt à commencer ? Envoyez-nous un courriel dès aujourd'hui pour une consultation et une soumission gratuites",
-    "response": "Nous répondons généralement dans les 2 heures",
-    "emailDescription": "Envoyez-nous un courriel avec vos problèmes informatiques ou vos questions, et nous vous fournirons une solution et une soumission personnalisées."
+    "subtitle": "Prêt à commencer ? Contactez-nous dès aujourd'hui pour une consultation et une soumission gratuites",
+    "button": "Nous contacter"
   },
   "footer": {
     "description": "Services professionnels de réparation et maintenance informatique sur lesquels vous pouvez compter. Garder votre technologie en bon fonctionnement depuis 2008.",

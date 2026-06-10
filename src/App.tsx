@@ -422,12 +422,12 @@ function App() {
           </div>
 
           <div className="text-center">
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg text-lg"
+            <a
+              href="mailto:info@geekonsite.ca"
+              className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg text-lg"
             >
-              {t('contact.title')}
-            </button>
+              {t('contact.button')}
+            </a>
           </div>
         </div>
       </section>

@@ -163,9 +163,8 @@
   },
   "contact": {
     "title": "Get In Touch",
-    "subtitle": "Ready to get started? Email us today for a free consultation and quote",
-    "response": "We typically respond within 2 hours",
-    "emailDescription": "Email us with your computer issues or questions, and we'll provide you with a personalized solution and quote."
+    "subtitle": "Ready to get started? Reach out to us today for a free consultation and quote",
+    "button": "Contact Us"
   },
   "footer": {
     "description": "Professional computer repair and maintenance services you can trust. Keeping your technology running smoothly since 2008.",
