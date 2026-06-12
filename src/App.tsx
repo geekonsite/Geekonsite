@@ -7,57 +7,64 @@ import {
   HardDrive,
   Shield,
   Zap,
-  Mail,
   Menu,
   X,
-  Star,
   Clock,
   Users,
   Award,
   ShieldCheck,
-  Zap as FastForward,
   DollarSign,
   Smile,
   MapPin,
   Lock,
   Globe,
   ArrowUp,
-  ChevronUp,
+  Clock as ClockIcon,
 } from 'lucide-react';
 import { FAQSection } from './components/FAQSection';
+import { Carousel3D } from './components/Carousel3D';
+import { FlipCard } from './components/FlipCard';
+import { MagneticButton } from './components/MagneticButton';
+import { ContactForm3D } from './components/ContactForm3D';
 import { useScrollReveal } from './hooks/useScrollReveal';
-import { useTilt } from './hooks/useTilt';
+import { useParallax } from './hooks/useParallax';
 
 const getServices = (t: any) => [
   {
-    icon: <Monitor className="h-8 w-8" />,
+    icon: <Monitor className="h-10 w-10" />,
     title: t('services.items.0.title'),
     description: t('services.items.0.description'),
+    backContent: t('services.items.0.description') + ' Same-day service available for most desktop issues.',
   },
   {
-    icon: <Laptop className="h-8 w-8" />,
+    icon: <Laptop className="h-10 w-10" />,
     title: t('services.items.1.title'),
     description: t('services.items.1.description'),
+    backContent: 'Screen replacements, keyboard fixes, and battery swaps completed within 24-48 hours.',
   },
   {
-    icon: <Smartphone className="h-8 w-8" />,
+    icon: <Smartphone className="h-10 w-10" />,
     title: t('services.items.2.title'),
     description: t('services.items.2.description'),
+    backContent: 'Quick repairs for iPhones, Androids, and tablets with quality parts.',
   },
   {
-    icon: <HardDrive className="h-8 w-8" />,
+    icon: <HardDrive className="h-10 w-10" />,
     title: t('services.items.3.title'),
     description: t('services.items.3.description'),
+    backContent: 'Professional recovery from HDDs, SSDs, USB drives, and memory cards.',
   },
   {
-    icon: <Shield className="h-8 w-8" />,
+    icon: <Shield className="h-10 w-10" />,
     title: t('services.items.4.title'),
     description: t('services.items.4.description'),
+    backContent: 'Complete virus, malware, and ransomware removal with security setup.',
   },
   {
-    icon: <Zap className="h-8 w-8" />,
+    icon: <Zap className="h-10 w-10" />,
     title: t('services.items.5.title'),
     description: t('services.items.5.description'),
+    backContent: 'SSD upgrades, RAM expansion, and system tune-ups for maximum speed.',
   },
 ];
 
@@ -68,7 +75,7 @@ const getAdvantages = (t: any) => [
     description: t('advantages.items.0.description'),
   },
   {
-    icon: <FastForward className="h-8 w-8" />,
+    icon: <Zap className="h-8 w-8" />,
     title: t('advantages.items.1.title'),
     description: t('advantages.items.1.description'),
   },
@@ -121,24 +128,88 @@ const getFAQs = (t: any) =>
     answer: string;
   }>;
 
-function TiltCard({
-  children,
-  className = '',
+// Animated stat counter with 3D effect
+function StatCounter({
+  value,
+  label,
+  icon: Icon,
+  delay = 0,
 }: {
-  children: React.ReactNode;
-  className?: string;
+  value: string;
+  label: string;
+  icon: React.ElementType;
+  delay?: number;
 }) {
-  const { cardRef, handleMouseMove, handleMouseLeave } = useTilt(6);
+  const [count, setCount] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const numericValue = parseInt(value.replace(/\D/g, '')) || 0;
+  const suffix = value.replace(/[\d]/g, '');
+
+  useEffect(() => {
+    if (hasAnimated) {
+      const duration = 2000;
+      const steps = 60;
+      const stepValue = numericValue / steps;
+      let current = 0;
+
+      const interval = setInterval(() => {
+        current += stepValue;
+        if (current >= numericValue) {
+          setCount(numericValue);
+          clearInterval(interval);
+        } else {
+          setCount(Math.floor(current));
+        }
+      }, duration / steps);
+
+      return () => clearInterval(interval);
+    }
+  }, [hasAnimated, numericValue]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setHasAnimated(true), delay);
+    return () => clearTimeout(timer);
+  }, [delay]);
+
+  const displayValue = numericValue > 0 ? `${count}${suffix}` : value;
 
   return (
-    <div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className={`tilt-card relative overflow-hidden rounded-xl ${className}`}
-    >
-      <div className="tilt-highlight" />
-      <div className="card-content relative z-10">{children}</div>
+    <div className="text-center group">
+      <div className="relative mb-4">
+        <div
+          className="flex items-center justify-center w-20 h-20 mx-auto rounded-full transition-all duration-500 ease-out group-hover:scale-110"
+          style={{
+            background: 'rgba(255,255,255,0.15)',
+            backdropFilter: 'blur(16px)',
+            border: '1px solid rgba(255,255,255,0.2)',
+            transform: hasAnimated ? 'translateZ(0)' : 'translateZ(-20px)',
+            opacity: hasAnimated ? 1 : 0,
+          }}
+        >
+          <Icon className="h-12 w-12 text-blue-300 transition-transform duration-300 group-hover:rotate-12" />
+        </div>
+        <div className="absolute -inset-2 rounded-full bg-blue-500/0 group-hover:bg-blue-500/10 transition-all duration-500 blur-xl -z-10" />
+      </div>
+      <div className="text-3xl font-bold text-white drop-shadow-lg">
+        {displayValue}
+      </div>
+      <div className="text-gray-200">{label}</div>
+    </div>
+  );
+}
+
+// 3D Cube component
+function RotatingCube() {
+  return (
+    <div className="cube-container">
+      <div className="cube">
+        <div className="cube-face front" />
+        <div className="cube-face back" />
+        <div className="cube-face right" />
+        <div className="cube-face left" />
+        <div className="cube-face top" />
+        <div className="cube-face bottom" />
+      </div>
     </div>
   );
 }
@@ -148,8 +219,8 @@ function App() {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [headerScrolled, setHeaderScrolled] = useState(false);
   const { t, i18n } = useTranslation();
-
   const revealRef = useScrollReveal(0.12);
+  const { containerRef: heroRef, parallax } = useParallax(1.5);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -185,9 +256,7 @@ function App() {
       {/* Header */}
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
-          headerScrolled
-            ? 'glass shadow-depth'
-            : 'bg-white shadow-sm'
+          headerScrolled ? 'glass shadow-depth' : 'bg-white shadow-sm'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -202,30 +271,15 @@ function App() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-8 items-center">
-              <button
-                onClick={() => scrollToSection('services')}
-                className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium"
-              >
-                {t('nav.services')}
-              </button>
-              <button
-                onClick={() => scrollToSection('faq')}
-                className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium"
-              >
-                {t('nav.faq')}
-              </button>
-              <button
-                onClick={() => scrollToSection('testimonials')}
-                className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium"
-              >
-                {t('nav.reviews')}
-              </button>
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium"
-              >
-                {t('nav.contact')}
-              </button>
+              {['services', 'faq', 'testimonials', 'contact'].map((section) => (
+                <button
+                  key={section}
+                  onClick={() => scrollToSection(section)}
+                  className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium"
+                >
+                  {t(`nav.${section === 'testimonials' ? 'reviews' : section}`)}
+                </button>
+              ))}
               <button
                 onClick={toggleLanguage}
                 className="flex items-center space-x-1 px-3 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-200 text-gray-600 font-medium"
@@ -241,11 +295,7 @@ function App() {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="md:hidden p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100"
               >
-                {mobileMenuOpen ? (
-                  <X className="h-6 w-6" />
-                ) : (
-                  <Menu className="h-6 w-6" />
-                )}
+                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
             </div>
           </div>
@@ -254,30 +304,15 @@ function App() {
           {mobileMenuOpen && (
             <div className="md:hidden border-t border-gray-200 py-4">
               <nav className="flex flex-col space-y-4">
-                <button
-                  onClick={() => scrollToSection('services')}
-                  className="text-left text-gray-600 hover:text-blue-600 transition-colors duration-200"
-                >
-                  {t('nav.services')}
-                </button>
-                <button
-                  onClick={() => scrollToSection('faq')}
-                  className="text-left text-gray-600 hover:text-blue-600 transition-colors duration-200"
-                >
-                  {t('nav.faq')}
-                </button>
-                <button
-                  onClick={() => scrollToSection('testimonials')}
-                  className="text-left text-gray-600 hover:text-blue-600 transition-colors duration-200"
-                >
-                  {t('nav.reviews')}
-                </button>
-                <button
-                  onClick={() => scrollToSection('contact')}
-                  className="text-left text-gray-600 hover:text-blue-600 transition-colors duration-200"
-                >
-                  {t('nav.contact')}
-                </button>
+                {['services', 'faq', 'testimonials', 'contact'].map((section) => (
+                  <button
+                    key={section}
+                    onClick={() => scrollToSection(section)}
+                    className="text-left text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                  >
+                    {t(`nav.${section === 'testimonials' ? 'reviews' : section}`)}
+                  </button>
+                ))}
                 <button
                   onClick={toggleLanguage}
                   className="flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-200 text-gray-600 font-medium"
@@ -291,87 +326,106 @@ function App() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        {/* Background Image with Pan/Zoom */}
+      {/* Hero Section with Parallax */}
+      <section className="relative py-20 overflow-hidden" ref={heroRef}>
+        {/* Background Image with Parallax */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat hero-bg-pan"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
               'url(https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop)',
+            transform: `translate(${parallax.x * 20}px, ${parallax.y * 20}px) scale(1.1)`,
           }}
         />
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-50" />
 
-        {/* Floating Geometric Shapes */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="floating-shape w-32 h-32 border-2 border-blue-400 top-[15%] left-[10%]" />
-          <div className="floating-shape w-20 h-20 border-2 border-white top-[60%] right-[15%]" />
-          <div className="floating-shape w-24 h-24 border-2 border-blue-300 bottom-[20%] left-[60%]" />
-          <div className="floating-shape w-16 h-16 border-2 border-blue-500 top-[30%] right-[40%]" />
-        </div>
+        {/* Floating Geometric Shapes with Parallax */}
+        <div
+          className="absolute top-[15%] left-[10%] w-32 h-32 border-2 border-blue-400 rounded opacity-10"
+          style={{
+            transform: `translate(${parallax.x * 40}px, ${parallax.y * 40}px)`,
+          }}
+        />
+        <div
+          className="absolute top-[60%] right-[15%] w-20 h-20 border-2 border-white rounded opacity-10"
+          style={{
+            transform: `translate(${parallax.x * 35}px, ${parallax.y * 35}px)`,
+          }}
+        />
+        <div
+          className="absolute bottom-[20%] left-[60%] w-24 h-24 border-2 border-blue-300 rounded opacity-10"
+          style={{
+            transform: `translate(${parallax.x * 30}px, ${parallax.y * 30}px)`,
+          }}
+        />
 
         {/* Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative z-10 text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1
+              className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg"
+              style={{
+                transform: `translate(${parallax.x * 15}px, ${parallax.y * 15}px)`,
+              }}
+            >
               {t('hero.mainTitle')}
               <span className="block text-blue-300">{t('hero.mainTitleHighlight')}</span>
             </h1>
-            <p className="text-lg text-gray-200 mb-2 max-w-3xl mx-auto drop-shadow-md">
+            <p
+              className="text-lg text-gray-200 mb-2 max-w-3xl mx-auto drop-shadow-md"
+              style={{
+                transform: `translate(${parallax.x * 12}px, ${parallax.y * 12}px)`,
+              }}
+            >
               {t('hero.serviceArea')}
             </p>
-            <p className="text-xl text-gray-100 mb-8 max-w-3xl mx-auto drop-shadow-md">
+            <p
+              className="text-xl text-gray-100 mb-8 max-w-3xl mx-auto drop-shadow-md"
+              style={{
+                transform: `translate(${parallax.x * 10}px, ${parallax.y * 10}px)`,
+              }}
+            >
               {t('hero.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+              <MagneticButton
                 href="mailto:info@geekonsite.ca"
-                className="shimmer-btn glow-btn bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg inline-block"
+                className="bg-blue-600 text-white px-10 py-5 rounded-xl font-semibold text-lg shadow-lg"
               >
                 {t('hero.cta')}
-              </a>
+              </MagneticButton>
             </div>
           </div>
 
-          {/* Stats with Floating Animation */}
-          <div className="relative z-10 mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center animate-float">
-              <div className="flex items-center justify-center mb-4 bg-white bg-opacity-15 backdrop-blur-md rounded-full w-20 h-20 mx-auto border border-white border-opacity-20">
-                <Clock className="h-12 w-12 text-blue-300" />
-              </div>
-              <div className="text-3xl font-bold text-white drop-shadow-lg">
-                {t('hero.statValues.emergency')}
-              </div>
-              <div className="text-gray-200">{t('hero.stats.emergency')}</div>
-            </div>
-            <div className="text-center animate-float-delay-1">
-              <div className="flex items-center justify-center mb-4 bg-white bg-opacity-15 backdrop-blur-md rounded-full w-20 h-20 mx-auto border border-white border-opacity-20">
-                <Users className="h-12 w-12 text-blue-300" />
-              </div>
-              <div className="text-3xl font-bold text-white drop-shadow-lg">
-                {t('hero.statValues.customers')}
-              </div>
-              <div className="text-gray-200">{t('hero.stats.customers')}</div>
-            </div>
-            <div className="text-center animate-float-delay-2">
-              <div className="flex items-center justify-center mb-4 bg-white bg-opacity-15 backdrop-blur-md rounded-full w-20 h-20 mx-auto border border-white border-opacity-20">
-                <Award className="h-12 w-12 text-blue-300" />
-              </div>
-              <div className="text-3xl font-bold text-white drop-shadow-lg">
-                {t('hero.statValues.experience')}
-              </div>
-              <div className="text-gray-200">{t('hero.stats.experience')}</div>
-            </div>
+          {/* Stats with Animation */}
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <StatCounter
+              value="24/7"
+              label={t('hero.stats.emergency')}
+              icon={Clock}
+              delay={200}
+            />
+            <StatCounter
+              value="500+"
+              label={t('hero.stats.customers')}
+              icon={Users}
+              delay={400}
+            />
+            <StatCounter
+              value="15+"
+              label={t('hero.stats.experience')}
+              icon={Award}
+              delay={600}
+            />
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Services Section with 3D Flip Cards */}
       <section id="services" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 reveal fade-up">
+          <div className="text-center mb-16 reveal swing-in-3d">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               {t('services.title')}
             </h2>
@@ -382,18 +436,39 @@ function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-stagger">
             {services.map((service, index) => (
-              <TiltCard
+              <FlipCard
                 key={index}
-                className="bg-white p-6 shadow-depth card-highlight border border-gray-100 group"
-              >
-                <div className="flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-lg mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600">{service.description}</p>
-              </TiltCard>
+                className="h-72"
+                front={
+                  <div className="h-full w-full bg-white shadow-depth border border-gray-100 rounded-xl p-6 flex flex-col items-center justify-center cursor-pointer">
+                    <div className="flex items-center justify-center w-20 h-20 bg-blue-100 text-blue-600 rounded-xl mb-6 transition-all duration-300 hover:rotate-6 hover:scale-105">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3 text-center">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-600 text-center text-sm">{service.description}</p>
+                    <p className="mt-4 text-blue-600 text-xs font-medium">Hover for details</p>
+                  </div>
+                }
+                back={
+                  <div className="h-full w-full bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl p-6 flex flex-col items-center justify-center text-white cursor-pointer">
+                    <div className="flex items-center justify-center w-16 h-16 bg-white/20 rounded-xl mb-6">
+                      {React.cloneElement(service.icon as React.ReactElement, {
+                        className: 'h-8 w-8',
+                      })}
+                    </div>
+                    <h3 className="text-xl font-bold mb-4 text-center">{service.title}</h3>
+                    <p className="text-sm text-blue-100 text-center mb-6">{service.backContent}</p>
+                    <a
+                      href="mailto:info@geekonsite.ca"
+                      className="px-4 py-2 bg-white text-blue-600 rounded-lg font-medium text-sm hover:bg-blue-50 transition-colors"
+                    >
+                      Get a Quote
+                    </a>
+                  </div>
+                }
+              />
             ))}
           </div>
         </div>
@@ -401,7 +476,7 @@ function App() {
 
       {/* Why Choose Us Section */}
       <section className="py-20 bg-gray-50 relative overflow-hidden">
-        {/* Subtle background decoration */}
+        {/* Background decorations */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full opacity-20 -translate-y-1/2 translate-x-1/2" />
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-200 rounded-full opacity-15 translate-y-1/2 -translate-x-1/2" />
 
@@ -415,13 +490,24 @@ function App() {
             </p>
           </div>
 
+          {/* Service Area Cube */}
+          <div className="flex justify-center mb-12 reveal scale-up">
+            <div className="flex items-center gap-4 bg-white px-8 py-4 rounded-2xl shadow-depth">
+              <RotatingCube />
+              <div>
+                <p className="font-semibold text-gray-900">{t('footer.serviceArea')}</p>
+                <p className="text-blue-600 text-lg">{t('footer.serviceAreaText')}</p>
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-stagger">
             {advantages.map((advantage, index) => (
-              <TiltCard
+              <div
                 key={index}
-                className="bg-white p-6 shadow-depth card-highlight border border-gray-100 group"
+                className="group relative overflow-hidden bg-white p-6 shadow-depth border border-gray-100 rounded-xl transition-all duration-300 hover:shadow-[0_20px_40px_-12px_rgba(59,130,246,0.2),0_8px_20px_-8px_rgba(0,0,0,0.1)] hover:-translate-y-1"
               >
-                <div className="flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-lg mb-4 mx-auto transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white">
+                <div className="flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-xl mb-4 mx-auto transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white">
                   {advantage.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3 text-center">
@@ -430,22 +516,8 @@ function App() {
                 <p className="text-gray-600 text-center leading-relaxed">
                   {advantage.description}
                 </p>
-              </TiltCard>
+              </div>
             ))}
-          </div>
-
-          {/* Call to Action */}
-          <div className="text-center mt-12 reveal scale-up">
-            <div className="glass-dark text-white px-8 py-6 rounded-xl shadow-depth inline-block">
-              <h3 className="text-2xl font-bold mb-2">{t('cta.ready')}</h3>
-              <p className="text-blue-200 mb-4">{t('cta.contact')}</p>
-              <a
-                href="mailto:info@geekonsite.ca"
-                className="shimmer-btn inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200"
-              >
-                {t('cta.button')}
-              </a>
-            </div>
           </div>
         </div>
       </section>
@@ -466,55 +538,25 @@ function App() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section id="testimonials" className="py-20 bg-gray-50">
+      {/* Testimonials Section with 3D Carousel */}
+      <section id="testimonials" className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 reveal fade-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               {t('testimonials.title')}
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               {t('testimonials.subtitle')}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-stagger">
-            {testimonials.map((testimonial, index) => (
-              <TiltCard
-                key={index}
-                className="bg-white p-6 shadow-depth card-highlight border border-gray-100 group"
-              >
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-5 w-5 text-yellow-400 fill-current"
-                    />
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-4 relative">
-                  <span className="absolute -top-2 -left-2 text-5xl text-blue-100 font-serif leading-none select-none">
-                    &ldquo;
-                  </span>
-                  <span className="relative z-10 pl-4">{testimonial.text}</span>
-                </p>
-                <div>
-                  <div className="font-semibold text-gray-900">
-                    {testimonial.name}
-                  </div>
-                  <div className="text-sm text-gray-600">
-                    {testimonial.business}
-                  </div>
-                </div>
-              </TiltCard>
-            ))}
-          </div>
+          <Carousel3D items={testimonials} />
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full">
+      {/* Contact Section with 3D Form */}
+      <section id="contact" className="py-20 bg-gray-50 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-50 rounded-full opacity-40" />
           <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-blue-100 rounded-full opacity-30" />
         </div>
@@ -529,13 +571,8 @@ function App() {
             </p>
           </div>
 
-          <div className="text-center reveal scale-up">
-            <a
-              href="mailto:info@geekonsite.ca"
-              className="shimmer-btn glow-btn inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg text-lg"
-            >
-              {t('contact.button')}
-            </a>
+          <div className="max-w-2xl mx-auto reveal drop-in-3d">
+            <ContactForm3D />
           </div>
         </div>
       </section>
@@ -583,9 +620,7 @@ function App() {
                   )
                 )}
                 <li className="pt-2 border-t border-gray-700 mt-2">
-                  <span className="font-semibold">
-                    {t('footer.serviceArea')}
-                  </span>
+                  <span className="font-semibold">{t('footer.serviceArea')}</span>
                   <br />
                   {t('footer.serviceAreaText')}
                 </li>

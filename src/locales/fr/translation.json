@@ -164,7 +164,18 @@
   "contact": {
     "title": "Prenez contact",
     "subtitle": "Prêt à commencer ? Contactez-nous dès aujourd'hui pour une consultation et une soumission gratuites",
-    "button": "Nous contacter"
+    "button": "Nous contacter",
+    "form": {
+      "name": "Votre nom",
+      "email": "Votre courriel",
+      "subject": "Sujet",
+      "message": "Votre message"
+    },
+    "sending": "Envoi en cours...",
+    "send": "Envoyer le message",
+    "successTitle": "Message envoyé !",
+    "successMessage": "Nous vous répondrons dans les 24 heures.",
+    "sendAnother": "Envoyer un autre message"
   },
   "footer": {
     "description": "Services professionnels de réparation et maintenance informatique sur lesquels vous pouvez compter. Garder votre technologie en bon fonctionnement depuis 2008.",

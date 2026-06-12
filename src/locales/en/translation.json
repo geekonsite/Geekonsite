@@ -164,7 +164,18 @@
   "contact": {
     "title": "Get In Touch",
     "subtitle": "Ready to get started? Reach out to us today for a free consultation and quote",
-    "button": "Contact Us"
+    "button": "Contact Us",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Subject",
+      "message": "Your Message"
+    },
+    "sending": "Sending...",
+    "send": "Send Message",
+    "successTitle": "Message Sent!",
+    "successMessage": "We'll get back to you within 24 hours.",
+    "sendAnother": "Send another message"
   },
   "footer": {
     "description": "Professional computer repair and maintenance services you can trust. Keeping your technology running smoothly since 2008.",

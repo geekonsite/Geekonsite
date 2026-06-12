@@ -401,3 +401,287 @@ textarea:focus-visible {
 .animate-pulse-success {
   animation: pulse-success 0.6s ease-in-out;
 }
+
+/* ========================================
+   3D Flip Cards
+   ======================================== */
+.flip-card-container {
+  perspective: 1200px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: inherit;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* ========================================
+   3D Perspective Carousel
+   ======================================== */
+.carousel-container {
+  perspective: 1400px;
+  overflow: hidden;
+}
+
+.carousel-track {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-item {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform-style: preserve-3d;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-item.active {
+  opacity: 1;
+  transform: translateX(-50%) translateZ(0) rotateY(0);
+  z-index: 10;
+}
+
+.carousel-item.prev {
+  opacity: 0.5;
+  transform: translateX(-130%) translateZ(-150px) rotateY(25deg);
+  z-index: 5;
+}
+
+.carousel-item.next {
+  opacity: 0.5;
+  transform: translateX(30%) translateZ(-150px) rotateY(-25deg);
+  z-index: 5;
+}
+
+.carousel-item.hidden-left {
+  opacity: 0;
+  transform: translateX(-200%) translateZ(-300px) rotateY(45deg);
+  z-index: 1;
+}
+
+.carousel-item.hidden-right {
+  opacity: 0;
+  transform: translateX(100%) translateZ(-300px) rotateY(-45deg);
+  z-index: 1;
+}
+
+/* ========================================
+   Magnetic 3D Buttons
+   ======================================== */
+.magnetic-btn {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out, box-shadow 0.2s ease-out;
+}
+
+.magnetic-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0) 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.magnetic-btn:hover::before {
+  opacity: 1;
+}
+
+.magnetic-btn-shadow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  filter: blur(16px);
+  opacity: 0.4;
+  transform: translateZ(-10px);
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.magnetic-btn:hover .magnetic-btn-shadow {
+  opacity: 0.6;
+}
+
+/* ========================================
+   3D Contact Form
+   ======================================== */
+.form-3d {
+  perspective: 1200px;
+}
+
+.form-3d-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease-out;
+}
+
+.form-field-3d {
+  transform: translateZ(0);
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.form-field-3d:focus-within {
+  transform: translateZ(15px);
+  box-shadow:
+    0 20px 40px -12px rgba(59, 130, 246, 0.25),
+    0 8px 20px -8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.form-success-3d {
+  animation: success3D 0.6s ease-out forwards;
+}
+
+@keyframes success3D {
+  0% {
+    opacity: 0;
+    transform: translateZ(-50px) rotateX(-30deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(0) rotateX(0);
+  }
+}
+
+/* ========================================
+   3D Entry Animations
+   ======================================== */
+@keyframes flyIn3D {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(10deg) translateY(60px) translateZ(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0) translateY(0) translateZ(0);
+  }
+}
+
+@keyframes swingIn3D {
+  from {
+    opacity: 0;
+    transform: perspective(800px) rotateY(-40deg) translateZ(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(800px) rotateY(0) translateZ(0);
+  }
+}
+
+@keyframes dropIn3D {
+  from {
+    opacity: 0;
+    transform: perspective(600px) translateY(-80px) translateZ(-30px) rotateX(-15deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(600px) translateY(0) translateZ(0) rotateX(0);
+  }
+}
+
+.reveal.revealed.fly-in-3d {
+  animation: flyIn3D 0.8s ease-out forwards;
+}
+
+.reveal.revealed.swing-in-3d {
+  animation: swingIn3D 0.9s ease-out forwards;
+}
+
+.reveal.revealed.drop-in-3d {
+  animation: dropIn3D 0.75s ease-out forwards;
+}
+
+/* Staggered 3D children */
+.reveal-stagger.revealed > *:nth-child(1) { animation: flyIn3D 0.65s ease-out 0.05s forwards; }
+.reveal-stagger.revealed > *:nth-child(2) { animation: flyIn3D 0.65s ease-out 0.15s forwards; }
+.reveal-stagger.revealed > *:nth-child(3) { animation: flyIn3D 0.65s ease-out 0.25s forwards; }
+.reveal-stagger.revealed > *:nth-child(4) { animation: flyIn3D 0.65s ease-out 0.35s forwards; }
+.reveal-stagger.revealed > *:nth-child(5) { animation: flyIn3D 0.65s ease-out 0.45s forwards; }
+.reveal-stagger.revealed > *:nth-child(6) { animation: flyIn3D 0.65s ease-out 0.55s forwards; }
+
+/* ========================================
+   Parallax Depth Layers
+   ======================================== */
+.parallax-layer {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+.parallax-bg {
+  transform: translateZ(-200px) scale(1.5);
+}
+
+.parallax-mid {
+  transform: translateZ(-100px) scale(1.2);
+}
+
+.parallax-fg {
+  transform: translateZ(0);
+}
+
+/* ========================================
+   Rotating 3D Cube
+   ======================================== */
+.cube-container {
+  perspective: 600px;
+  width: 80px;
+  height: 80px;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateCube 15s linear infinite;
+}
+
+@keyframes rotateCube {
+  0% { transform: rotateX(0) rotateY(0); }
+  100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+.cube-face {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(37, 99, 235, 0.6));
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.cube-face.front  { transform: translateZ(20px); }
+.cube-face.back   { transform: rotateY(180deg) translateZ(20px); }
+.cube-face.right  { transform: rotateY(90deg) translateZ(20px); }
+.cube-face.left   { transform: rotateY(-90deg) translateZ(20px); }
+.cube-face.top    { transform: rotateX(90deg) translateZ(20px); }
+.cube-face.bottom { transform: rotateX(-90deg) translateZ(20px); }
+
+.cube-face {
+  left: 20px;
+  top: 20px;
+}
