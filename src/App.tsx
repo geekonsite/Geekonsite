@@ -20,12 +20,13 @@ import {
   Globe,
   ArrowUp,
   Clock as ClockIcon,
+  Mail,
+  Phone,
 } from 'lucide-react';
 import { FAQSection } from './components/FAQSection';
 import { Carousel3D } from './components/Carousel3D';
 import { FlipCard } from './components/FlipCard';
 import { MagneticButton } from './components/MagneticButton';
-import { Mail, Phone, Clock, MapPin } from 'lucide-react';
 import { useScrollReveal } from './hooks/useScrollReveal';
 import { useParallax } from './hooks/useParallax';
 
