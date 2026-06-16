@@ -165,17 +165,13 @@
     "title": "Get In Touch",
     "subtitle": "Ready to get started? Reach out to us today for a free consultation and quote",
     "button": "Contact Us",
-    "form": {
-      "name": "Your Name",
-      "email": "Your Email",
-      "subject": "Subject",
-      "message": "Your Message"
-    },
-    "sending": "Sending...",
-    "send": "Send Message",
-    "successTitle": "Message Sent!",
-    "successMessage": "We'll get back to you within 24 hours.",
-    "sendAnother": "Send another message"
+    "email": "Email",
+    "phone": "Phone",
+    "hours": "Hours",
+    "hoursText": "24/7 Emergency Support",
+    "area": "Service Area",
+    "readyTitle": "Ready to Get Started?",
+    "readyText": "Click the button below to open your email client and send us a message directly. We respond within 2 hours!"
   },
   "footer": {
     "description": "Professional computer repair and maintenance services you can trust. Keeping your technology running smoothly since 2008.",
