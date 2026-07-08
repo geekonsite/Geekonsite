@@ -21,6 +21,9 @@ import {
   ArrowUp,
   Clock as ClockIcon,
   Mail,
+  GraduationCap,
+  FileText,
+  Heart,
 } from 'lucide-react';
 import { FAQSection } from './components/FAQSection';
 import { Carousel3D } from './components/Carousel3D';
@@ -272,7 +275,7 @@ function App() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-8 items-center">
-              {['services', 'faq', 'testimonials', 'contact'].map((section) => (
+              {['services', 'seniors', 'faq', 'testimonials', 'contact'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
@@ -305,7 +308,7 @@ function App() {
           {mobileMenuOpen && (
             <div className="md:hidden border-t border-gray-200 py-4">
               <nav className="flex flex-col space-y-4">
-                {['services', 'faq', 'testimonials', 'contact'].map((section) => (
+                {['services', 'seniors', 'faq', 'testimonials', 'contact'].map((section) => (
                   <button
                     key={section}
                     onClick={() => scrollToSection(section)}
@@ -471,6 +474,73 @@ function App() {
                 }
               />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Seniors Digital Literacy Section */}
+      <section id="seniors" className="py-24 bg-gradient-to-br from-teal-50 via-white to-blue-50 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-72 h-72 bg-teal-200 rounded-full filter blur-3xl opacity-20" />
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-200 rounded-full filter blur-3xl opacity-20" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-teal-100 text-teal-700 rounded-full text-sm font-semibold mb-4">
+              <Heart className="h-4 w-4" />
+              {t('seniors.title')}
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+              {t('seniors.title')}
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              {t('seniors.subtitle')}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
+            {/* Courses Card */}
+            <div className="group bg-white rounded-2xl p-8 shadow-[0_8px_30px_-12px_rgba(13,148,136,0.15)] border border-teal-100 transition-all duration-300 hover:shadow-[0_20px_40px_-12px_rgba(13,148,136,0.25)] hover:-translate-y-1">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="flex-shrink-0 w-14 h-14 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                  <GraduationCap className="h-7 w-7" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">{t('seniors.courses.title')}</h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">{t('seniors.courses.description')}</p>
+            </div>
+
+            {/* Forms Card */}
+            <div className="group bg-white rounded-2xl p-8 shadow-[0_8px_30px_-12px_rgba(13,148,136,0.15)] border border-teal-100 transition-all duration-300 hover:shadow-[0_20px_40px_-12px_rgba(13,148,136,0.25)] hover:-translate-y-1">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="flex-shrink-0 w-14 h-14 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                  <FileText className="h-7 w-7" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">{t('seniors.forms.title')}</h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">{t('seniors.forms.description')}</p>
+            </div>
+          </div>
+
+          {/* Features */}
+          <div className="max-w-3xl mx-auto mb-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {(t('seniors.features', { returnObjects: true }) as string[]).map((feature, i) => (
+                <div key={i} className="flex items-center gap-2 text-sm text-gray-600 bg-white/70 rounded-lg px-3 py-2.5 border border-gray-100">
+                  <span className="flex-shrink-0 w-5 h-5 bg-teal-500 text-white rounded-full flex items-center justify-center text-xs font-bold">✓</span>
+                  <span>{feature}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center">
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-teal-600 text-white rounded-xl font-semibold text-lg shadow-lg shadow-teal-600/20 hover:bg-teal-700 hover:shadow-xl hover:shadow-teal-600/30 transition-all duration-300 hover:-translate-y-0.5"
+            >
+              {t('seniors.cta')}
+            </button>
           </div>
         </div>
       </section>

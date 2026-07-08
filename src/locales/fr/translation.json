@@ -1,6 +1,7 @@
 {
   "nav": {
     "services": "Services",
+    "seniors": "Aînés",
     "faq": "FAQ",
     "reviews": "Avis",
     "contact": "Contact"
@@ -51,6 +52,25 @@
         "description": "Nettoyage système, optimisation logicielle et mises à niveau matérielles pour des performances optimales"
       }
     ]
+  },
+  "seniors": {
+    "title": "Alphabétisation Numérique pour Aînés",
+    "subtitle": "Accompagnement technologique patient et convivial, conçu pour les personnes âgées. Apprenez à votre rythme avec un soutien personnalisé — aucune expérience requise.",
+    "courses": {
+      "title": "Cours d'Informatique et d'Internet",
+      "description": "Leçons pour débutants couvrant le courriel, la navigation Web, les appels vidéo en famille, la sécurité en ligne et les compétences informatiques courantes. Cours en groupe et sessions privées disponibles, en personne ou à distance."
+    },
+    "forms": {
+      "title": "Aide aux Formulaires en Ligne",
+      "description": "Aide individuelle pour naviguer les formulaires gouvernementaux, la paperasse médicale, les demandes et autres documents en ligne. Nous vous guidons à chaque étape avec patience et clarté."
+    },
+    "features": [
+      "Enseignement patient, en langage simple",
+      "Sessions en personne ou à distance",
+      "Cours en groupe ou en privé",
+      "Aucune expérience préalable requise"
+    ],
+    "cta": "Réserver une Session"
   },
   "advantages": {
     "title": "Pourquoi choisir GeekOnSite Solutions ?",

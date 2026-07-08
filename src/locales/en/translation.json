@@ -1,6 +1,7 @@
 {
   "nav": {
     "services": "Services",
+    "seniors": "Seniors",
     "faq": "FAQ",
     "reviews": "Reviews",
     "contact": "Contact"
@@ -51,6 +52,25 @@
         "description": "System cleanup, software optimization, and hardware upgrades for peak performance"
       }
     ]
+  },
+  "seniors": {
+    "title": "Digital Literacy for Seniors",
+    "subtitle": "Patient, friendly technology guidance designed for older adults. Learn at your own pace with personalized, one-on-one support — no experience needed.",
+    "courses": {
+      "title": "Computer & Internet Courses",
+      "description": "Beginner-friendly lessons covering email, web browsing, video calls with family, online safety, and everyday computer skills. Group classes and private sessions available, in-person or remote."
+    },
+    "forms": {
+      "title": "Online Form Assistance",
+      "description": "One-on-one help navigating government forms, medical paperwork, applications, and other online documents. We guide you through each step with patience and clarity."
+    },
+    "features": [
+      "Patient, plain-language instruction",
+      "In-person or remote sessions",
+      "Group classes or private one-on-one",
+      "No prior experience needed"
+    ],
+    "cta": "Book a Session"
   },
   "advantages": {
     "title": "Why Choose GeekOnSite Solutions?",
