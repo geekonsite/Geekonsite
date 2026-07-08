@@ -21,7 +21,6 @@ import {
   ArrowUp,
   Clock as ClockIcon,
   Mail,
-  Phone,
 } from 'lucide-react';
 import { FAQSection } from './components/FAQSection';
 import { Carousel3D } from './components/Carousel3D';
@@ -588,21 +587,6 @@ function App() {
                         className="text-blue-600 hover:text-blue-700 transition-colors"
                       >
                         info@geekonsite.ca
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
-                      <Phone className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">{t('contact.phone', 'Phone')}</h3>
-                      <a
-                        href="tel:+14384988299"
-                        className="text-blue-600 hover:text-blue-700 transition-colors"
-                      >
-                        (438) 498-8299
                       </a>
                     </div>
                   </div>
