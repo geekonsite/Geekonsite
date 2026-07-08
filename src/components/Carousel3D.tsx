@@ -55,7 +55,7 @@ export const Carousel3D: React.FC<Carousel3DProps> = ({ items }) => {
           {items.map((item, index) => (
             <div
               key={index}
-              className={`carousel-item w-80 h-64`}
+              className={`carousel-item ${getItemState(index)} w-80 h-64`}
             >
               <div className="w-full h-full bg-white rounded-xl shadow-depth border border-gray-100 p-6 flex flex-col">
                 <div className="flex items-center mb-3">
