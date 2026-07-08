@@ -142,8 +142,9 @@ function StatCounter({
 }) {
   const [count, setCount] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
-  const numericValue = parseInt(value.replace(/\D/g, '')) || 0;
-  const suffix = value.replace(/[\d]/g, '');
+  const isCountable = /^\d+[^\d]*$/.test(value);
+  const numericValue = isCountable ? parseInt(value.replace(/\D/g, '')) || 0 : 0;
+  const suffix = isCountable ? value.replace(/[\d]/g, '') : '';
 
   useEffect(() => {
     if (hasAnimated) {
