@@ -24,6 +24,10 @@ import {
   GraduationCap,
   FileText,
   Heart,
+  Send,
+  Loader2,
+  CheckCircle,
+  AlertCircle,
 } from 'lucide-react';
 import { FAQSection } from './components/FAQSection';
 import { Carousel3D } from './components/Carousel3D';
@@ -222,6 +226,8 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [headerScrolled, setHeaderScrolled] = useState(false);
+  const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });
+  const [contactStatus, setContactStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const { t, i18n } = useTranslation();
   const revealRef = useScrollReveal(0.12);
   const { containerRef: heroRef, parallax } = useParallax(1.5);
@@ -238,6 +244,30 @@ function App() {
     const newLang = i18n.language === 'en' ? 'fr' : 'en';
     i18n.changeLanguage(newLang);
     localStorage.setItem('language', newLang);
+  };
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setContactStatus('submitting');
+    try {
+      const response = await fetch('https://splitforms.com/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: '44d8e329e3c1433ab038fccc937899d0',
+          name: contactForm.name,
+          email: contactForm.email,
+          message: contactForm.message,
+        }),
+      });
+      if (!response.ok) throw new Error('Submission failed');
+      setContactStatus('success');
+      setContactForm({ name: '', email: '', message: '' });
+      setTimeout(() => setContactStatus('idle'), 5000);
+    } catch {
+      setContactStatus('error');
+      setTimeout(() => setContactStatus('idle'), 5000);
+    }
   };
 
   const handleScroll = useCallback(() => {
@@ -683,23 +713,99 @@ function App() {
                   </div>
                 </div>
 
-                {/* Contact CTA */}
+                {/* Contact Form */}
                 <div className="flex flex-col justify-center">
-                  <div className="text-center md:text-left">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  <div className="text-center md:text-left mb-6">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
                       {t('contact.readyTitle', 'Ready to Get Started?')}
                     </h3>
-                    <p className="text-gray-600 mb-6">
-                      {t('contact.readyText', 'Click the button below to open your email client and send us a message directly. We respond within 2 hours!')}
+                    <p className="text-gray-600">
+                      {t('contact.readyText', 'Fill out the form and we\'ll get back to you within 2 hours.')}
                     </p>
-                    <MagneticButton
-                      href="mailto:info@geekonsite.ca?subject=Website%20Inquiry&body=Hi%2C%0A%0AI%20would%20like%20to%20inquire%20about%20your%20services.%0A%0ABest%20regards"
-                      className="inline-flex items-center gap-3 bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:bg-blue-700 transition-all duration-300"
-                    >
-                      <Mail className="h-5 w-5" />
-                      {t('contact.button')}
-                    </MagneticButton>
                   </div>
+
+                  <form onSubmit={handleContactSubmit} className="space-y-4">
+                    <div>
+                      <label htmlFor="contact-name" className="block text-sm font-medium text-gray-700 mb-1">
+                        {t('contact.form.name', 'Your Name')}
+                      </label>
+                      <input
+                        id="contact-name"
+                        type="text"
+                        required
+                        value={contactForm.name}
+                        onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                        placeholder={t('contact.form.namePlaceholder', 'John Doe')}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all duration-200 text-gray-900 placeholder-gray-400"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="contact-email" className="block text-sm font-medium text-gray-700 mb-1">
+                        {t('contact.form.email', 'Your Email')}
+                      </label>
+                      <input
+                        id="contact-email"
+                        type="email"
+                        required
+                        value={contactForm.email}
+                        onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                        placeholder={t('contact.form.emailPlaceholder', 'john@example.com')}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all duration-200 text-gray-900 placeholder-gray-400"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="contact-message" className="block text-sm font-medium text-gray-700 mb-1">
+                        {t('contact.form.message', 'Message')}
+                      </label>
+                      <textarea
+                        id="contact-message"
+                        required
+                        rows={4}
+                        value={contactForm.message}
+                        onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
+                        placeholder={t('contact.form.messagePlaceholder', 'Tell us how we can help you...')}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all duration-200 text-gray-900 placeholder-gray-400 resize-none"
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={contactStatus === 'submitting'}
+                      className="w-full inline-flex items-center justify-center gap-3 bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:bg-blue-700 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                    >
+                      {contactStatus === 'submitting' ? (
+                        <>
+                          <Loader2 className="h-5 w-5 animate-spin" />
+                          {t('contact.form.submitting', 'Sending...')}
+                        </>
+                      ) : (
+                        <>
+                          <Send className="h-5 w-5" />
+                          {t('contact.form.submit', 'Send Message')}
+                        </>
+                      )}
+                    </button>
+
+                    {contactStatus === 'success' && (
+                      <div className="flex items-center gap-2 text-green-700 bg-green-50 border border-green-200 rounded-xl px-4 py-3 animate-fade-in">
+                        <CheckCircle className="h-5 w-5 flex-shrink-0" />
+                        <span className="text-sm font-medium">
+                          {t('contact.form.success', 'Thank you! Your message has been sent. We\'ll get back to you shortly.')}
+                        </span>
+                      </div>
+                    )}
+
+                    {contactStatus === 'error' && (
+                      <div className="flex items-center gap-2 text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3 animate-fade-in">
+                        <AlertCircle className="h-5 w-5 flex-shrink-0" />
+                        <span className="text-sm font-medium">
+                          {t('contact.form.error', 'Something went wrong. Please try again or email us directly.')}
+                        </span>
+                      </div>
+                    )}
+                  </form>
                 </div>
               </div>
             </div>

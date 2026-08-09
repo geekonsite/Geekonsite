@@ -191,7 +191,19 @@
     "hoursText": "Support d'urgence 24/7",
     "area": "Zone de service",
     "readyTitle": "Prêt à commencer ?",
-    "readyText": "Cliquez sur le bouton ci-dessous pour ouvrir votre client de messagerie et nous envoyer un message directement. Nous répondons dans les 2 heures !"
+    "readyText": "Remplissez le formulaire et nous vous répondrons dans les 2 heures.",
+    "form": {
+      "name": "Votre nom",
+      "namePlaceholder": "Jean Dupont",
+      "email": "Votre courriel",
+      "emailPlaceholder": "jean@example.com",
+      "message": "Message",
+      "messagePlaceholder": "Dites-nous comment nous pouvons vous aider...",
+      "submit": "Envoyer le message",
+      "submitting": "Envoi en cours...",
+      "success": "Merci ! Votre message a été envoyé. Nous vous répondrons sous peu.",
+      "error": "Une erreur s'est produite. Veuillez réessayer ou nous écrire directement."
+    }
   },
   "footer": {
     "description": "Services professionnels de réparation et maintenance informatique sur lesquels vous pouvez compter. Garder votre technologie en bon fonctionnement depuis 2008.",

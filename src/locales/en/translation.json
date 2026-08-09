@@ -191,7 +191,19 @@
     "hoursText": "24/7 Emergency Support",
     "area": "Service Area",
     "readyTitle": "Ready to Get Started?",
-    "readyText": "Click the button below to open your email client and send us a message directly. We respond within 2 hours!"
+    "readyText": "Fill out the form and we'll get back to you within 2 hours.",
+    "form": {
+      "name": "Your Name",
+      "namePlaceholder": "John Doe",
+      "email": "Your Email",
+      "emailPlaceholder": "john@example.com",
+      "message": "Message",
+      "messagePlaceholder": "Tell us how we can help you...",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "success": "Thank you! Your message has been sent. We'll get back to you shortly.",
+      "error": "Something went wrong. Please try again or email us directly."
+    }
   },
   "footer": {
     "description": "Professional computer repair and maintenance services you can trust. Keeping your technology running smoothly since 2008.",
