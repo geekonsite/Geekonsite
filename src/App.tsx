@@ -252,7 +252,7 @@ function App() {
     try {
       const response = await fetch('https://splitforms.com/api/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
           access_key: '44d8e329e3c1433ab038fccc937899d0',
           name: contactForm.name,
@@ -260,7 +260,8 @@ function App() {
           message: contactForm.message,
         }),
       });
-      if (!response.ok) throw new Error('Submission failed');
+      const data = await response.json();
+      if (!response.ok || !data.success) throw new Error(data.message || 'Submission failed');
       setContactStatus('success');
       setContactForm({ name: '', email: '', message: '' });
       setTimeout(() => setContactStatus('idle'), 5000);
