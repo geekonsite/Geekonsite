@@ -674,57 +674,17 @@ function App() {
 
           <div className="max-w-4xl mx-auto reveal drop-in-3d">
             <div className="bg-white rounded-2xl shadow-depth border border-gray-100 p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-8">
-                {/* Contact Info */}
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
-                      <Mail className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">{t('contact.email', 'Email')}</h3>
-                      <a
-                        href="mailto:info@geekonsite.ca"
-                        className="text-blue-600 hover:text-blue-700 transition-colors"
-                      >
-                        info@geekonsite.ca
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
-                      <Clock className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">{t('contact.hours', 'Hours')}</h3>
-                      <p className="text-gray-600">{t('contact.hoursText', '24/7 Emergency Support')}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
-                      <MapPin className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">{t('contact.area', 'Service Area')}</h3>
-                      <p className="text-gray-600">{t('footer.serviceAreaText')}</p>
-                    </div>
-                  </div>
+              <div className="flex flex-col justify-center">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    {t('contact.readyTitle', 'Ready to Get Started?')}
+                  </h3>
+                  <p className="text-gray-600">
+                    {t('contact.readyText', 'Fill out the form and we\'ll get back to you within 2 hours.')}
+                  </p>
                 </div>
 
-                {/* Contact Form */}
-                <div className="flex flex-col justify-center">
-                  <div className="text-center md:text-left mb-6">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                      {t('contact.readyTitle', 'Ready to Get Started?')}
-                    </h3>
-                    <p className="text-gray-600">
-                      {t('contact.readyText', 'Fill out the form and we\'ll get back to you within 2 hours.')}
-                    </p>
-                  </div>
-
-                  <form onSubmit={handleContactSubmit} className="space-y-4">
+                <form onSubmit={handleContactSubmit} className="space-y-4">
                     <div>
                       <label htmlFor="contact-name" className="block text-sm font-medium text-gray-700 mb-1">
                         {t('contact.form.name', 'Your Name')}
@@ -807,7 +767,6 @@ function App() {
                     )}
                   </form>
                 </div>
-              </div>
             </div>
           </div>
         </div>
