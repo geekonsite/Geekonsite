@@ -791,6 +791,13 @@ function App() {
               <div className="text-sm text-gray-500">
                 {t('footer.copyright')}
               </div>
+              <div className="mt-6">
+                <div
+                  className="google-add-preferred-source-btn"
+                  data-source="https://geekonsite.ca"
+                  data-theme="dark"
+                />
+              </div>
             </div>
             <div>
               <h4 className="text-lg font-semibold mb-4">
